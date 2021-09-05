@@ -72,6 +72,12 @@ app.post("/create-monthly-checkout-session", async (req,res) => {
 	}
 })
 
+for (let c = 1; c <= 7; c++){
+	app.get(`/GlampingImg${c}`, (req,res) => {
+		res.sendFile(__dirname + `/assets/GlampingImg#${c}.jpg`)
+	})
+}
+
 
 app.listen(port, () => console.log(`App server initalized on port ${port}`))
 

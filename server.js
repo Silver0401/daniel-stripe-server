@@ -56,6 +56,7 @@ app.post("/create-monthly-checkout-session", async (req,res) => {
 	try{
 		session = await stripeKey.checkout.sessions.create({
 			payment_method_types: ['card'],
+			background_color: "#43a3df",
 			line_items,
 			customer_email,
 			mode: 'subscription',

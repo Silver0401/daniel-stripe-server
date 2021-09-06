@@ -8,6 +8,7 @@ let port = process.env.PORT || 4000
 app.use(express.json())
 app.use(cors({ origin: true}))
 const stripeKey = stripe(process.env.STRIPE_KEY)
+const domainURL = "https://nostalgic-morse-ac494a.netlify.app"
 
 
 app.get("/", (req, res) => {
@@ -15,7 +16,6 @@ app.get("/", (req, res) => {
 })
 
 app.post("/create-one-time-checkout-session", async (req,res) => {
-	const domainURL = "http://localhost:3000"
 	const customer_email = req.body.customer_email
 	const line_items = req.body.line_items
 
@@ -44,7 +44,6 @@ app.post("/create-one-time-checkout-session", async (req,res) => {
 })
 
 app.post("/create-monthly-checkout-session", async (req,res) => {
-	const domainURL = "http://localhost:3000"
 	const customer_email = req.body.customer_email
 	const line_items = req.body.line_items
 
